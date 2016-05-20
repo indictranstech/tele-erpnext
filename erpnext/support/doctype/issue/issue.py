@@ -7,9 +7,8 @@ import json
 from frappe import _
 
 from frappe.model.document import Document
-from frappe.utils import now
+from frappe.utils import now, cstr
 from frappe.utils.user import is_website_user
-
 sender_field = "raised_by"
 
 class Issue(Document):
@@ -101,3 +100,28 @@ def set_multiple_status(names, status):
 
 def has_website_permission(doc, ptype, user, verbose=False):
 	return doc.raised_by==user
+
+@frappe.whitelist()
+def get_events(start, end):
+	events = []
+	add_issues(events, start, end)
+	return events
+
+def add_issues(events, start, end):
+	query = """select name, subject, opening_date, due_date,
+		status, docstatus
+		from `tabIssue` where
+		(opening_date between %s and %s or due_date between %s and %s)"""
+
+	for d in frappe.db.sql(query, (start, end, start, end), as_dict=True):
+		e = {
+			"name": d.name,
+			"doctype": "Issue",
+			"opening_date": d.opening_date,
+			"due_date": d.due_date,
+			"status": d.status,
+			"subject": d.subject,
+			"docstatus": d.docstatus
+		}
+		if e not in events:
+			events.append(e)

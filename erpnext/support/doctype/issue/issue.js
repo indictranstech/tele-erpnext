@@ -1,4 +1,5 @@
 {% include 'support/support_common.js' %}
+cur_frm.add_fetch("location_id","location_name", "location_name")
 
 frappe.ui.form.on_change("Issue", "location_id",function(){
 	frappe.call({

@@ -3,7 +3,7 @@
 
 frappe.views.calendar["Issue"] = {
 	field_map: {
-		"start": "opening_date",
+		"start": "due_date",
 		"end": "due_date",
 		"id": "name",
 		"title": "subject",

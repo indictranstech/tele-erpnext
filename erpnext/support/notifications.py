@@ -11,7 +11,7 @@ def new_support_queue_notification(doc, method):
             "full_name": " ".join([txt for txt in user_details[1:] if txt]),
             "subject": "Support Ticket is assigned to you",
             "title": "Support Ticket updates",
-            "msg": "New Support Ticket %s is assigned to you.<br>Please check and address the same."%(doc.reference_name)
+            "msg": "New Support Ticket '{0} - {1}' is assigned to you.<br>Please check and address the same.".format(doc.reference_name, doc.description)
         }
         send_mail(args)
 

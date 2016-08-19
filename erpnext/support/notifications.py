@@ -128,9 +128,7 @@ def notify_user_about_closed_ticket(doc, method):
             "full_name": doc.customer_name or "Customer",
             "subject": "Support Ticket is resolved and closed",
             "title": "Support Ticket updates",
-            "msg": "Your Support ticket %s is resolved and closed.<br>Kindly process the billing."%(
-                        doc.name
-                    )
+            "msg": "Your Support ticket '{0} - {1}' is resolved and closed.<br>Kindly process the billing.".format(doc.name, doc.subject)
         }
         send_mail(args)
     else:

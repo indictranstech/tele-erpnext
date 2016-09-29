@@ -75,12 +75,12 @@ doc_events = {
 	"Price List": {
 		"on_update": "erpnext.shopping_cart.doctype.shopping_cart_settings.shopping_cart_settings.validate_cart_settings"
 	},
-	"ToDo": {
-		"before_insert": "erpnext.support.notifications.new_support_queue_notification"
-	},
-	"Issue": {
-		"validate": "erpnext.support.notifications.notify_user_about_closed_ticket"
-	}
+	# "ToDo": {
+	# 	"before_insert": "erpnext.support.notifications.new_support_queue_notification"
+	# },
+	# "Issue": {
+	# 	"validate": "erpnext.support.notifications.notify_user_about_closed_ticket"
+	# }
 }
 
 scheduler_events = {

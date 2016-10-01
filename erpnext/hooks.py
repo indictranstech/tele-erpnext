@@ -93,7 +93,7 @@ scheduler_events = {
 		"erpnext.hr.doctype.employee.employee.send_birthday_reminders",
 		"erpnext.support.notifications.notify_user_about_due_issues",
 		"erpnext.support.notifications.notify_user_about_past_due_issues",
-		"erpnext.support.notifications.notify_customer_about_open_issues"
+		#"erpnext.support.notifications.notify_customer_about_open_issues"
 	],
 	"daily_long": [
 		"erpnext.setup.doctype.backup_manager.backup_manager.take_backups_daily"
